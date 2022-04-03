@@ -1,3 +1,4 @@
+package JavaFundamentals;
 // EPAM Automated Testing: Java Foundations
 // Aidyn Seipolla
 

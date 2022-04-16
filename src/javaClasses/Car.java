@@ -1,10 +1,10 @@
-package JavaClasses;
+package javaClasses;
 
-public class car {
+public class Car {
     private String id, manufacture, model, color, regNumber;
     private int year, price, inUse;
 
-    public car(String id, String manufacture, String model, int year, String color, int price, String regNumber) {
+    public Car(String id, String manufacture, String model, int year, String color, int price, String regNumber) {
         this.id = id;
         this.manufacture = manufacture;
         this.model = model;

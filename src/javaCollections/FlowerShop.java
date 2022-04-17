@@ -1,23 +1,43 @@
 package javaCollections;
 import java.util.*;
 
+// EPAM Automated Testing: Java Foundations
+// Aidyn Seipolla
 
-public class FlowerShop {
-    public static void main(String[] args) {
-        System.out.println("Welcome to our Flower Shop!");
+public class FlowerShop
+{
+    public static void main(String[] args)
+    {
+        Flower[] flowers = new Flower[]
+                {
+                        new Rose(120,Freshness.Freshest,20),
+                        new Lily(100,Freshness.OldFresh,25),
+                        new Tulip(90,Freshness.MildFresh,30),
+                        new Rose(150,Freshness.OldFresh,26),
+                        new Tulip(52,Freshness.MildFresh,40)
+                };
 
-        Flower[] flowerList = new Flower[5];
-        flowerList[0] = new Flower("Rose", 5, 3);
-        flowerList[1] = new Flower("Tulip", 3, 2);
-        flowerList[2] = new Flower("Lily", 1, 1);
-        flowerList[3] = new Flower("Sunflower", 10, 5);
+        System.out.println("***** Букет цветов несортированный *****\n");
+        for (Flower f : flowers)
+        {
+            System.out.println(f.toString());
+        }
 
-        Arrays.sort(flowerList, new Comparator<Flower>() {
+        //Сортируем массив
+        Arrays.sort(flowers);
 
-       public int compare(Flower o1, Flower o2) {
-           return o1.freshness.compareTo(o2.freshness);
-       }
-   });
-        System.out.println(Arrays.asList(flowerList));
+        System.out.println("\n***** Букет цветов отсортированный *****\n");
+        for (Flower f : flowers)
+        {
+            System.out.println(f.toString());
+        }
+
+        System.out.println("\n***** Цветы со стеблем больше или равным 40 *****\n");
+        for (Flower f : flowers)
+        {
+            if((f.getStalkLength()) >= 40){
+                System.out.println(f);
+            }
+        }
     }
 }

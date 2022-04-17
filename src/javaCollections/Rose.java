@@ -9,8 +9,7 @@ public class Rose extends Flower {
     }
 
     @Override
-    public int getCost() {
-        return roseCost;
+    public int getCost() {return roseCost;
     }
 
     @Override
@@ -20,13 +19,9 @@ public class Rose extends Flower {
             case MildFresh -> roseCost = value - 1;
             case OldFresh -> roseCost = value - 2;
         }
-
     }
 
-    //Переопределение ToString();
     @Override
-    public String toString() {
-        return String.format("%1$s; %2$s", "Rose", super.toString());
-
+    public String toString() {return String.format("%1$s; %2$s", "Rose", super.toString());
     }
 }

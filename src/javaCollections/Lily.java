@@ -9,8 +9,7 @@ public class Lily extends Flower {
     }
 
     @Override
-    public int getCost() {
-        return lilyCost;
+    public int getCost() {return lilyCost;
     }
 
     @Override
@@ -23,7 +22,6 @@ public class Lily extends Flower {
     }
 
     @Override
-    public String toString() {
-        return String.format("%1$s; %2$s", "Lily", super.toString());
+    public String toString() {return String.format("%1$s; %2$s", "Lily", super.toString());
     }
 }

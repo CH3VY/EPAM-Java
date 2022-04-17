@@ -9,8 +9,7 @@ public class Tulip extends Flower {
     }
 
     @Override
-    public int getCost() {
-        return irisCost;
+    public int getCost() {return irisCost;
     }
 
     @Override
@@ -23,7 +22,6 @@ public class Tulip extends Flower {
     }
 
     @Override
-    public String toString() {
-        return String.format("%1$s; %2$s", "Iris", super.toString());
+    public String toString() {return String.format("%1$s; %2$s", "Iris", super.toString());
     }
 }

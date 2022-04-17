@@ -5,7 +5,6 @@ public enum Freshness {
     MildFresh(1),
     OldFresh(2);
 
-
     public static Freshness toFreshness(int freshness) {
         switch (freshness) {
             case 0:
@@ -18,7 +17,6 @@ public enum Freshness {
                 throw new IllegalArgumentException("Freshness value is invalid: " + freshness);
         }
     }
-
 
     public int value;
     private Freshness(final Integer value) {

@@ -2,14 +2,14 @@ package javaCollections;
 
 public abstract class Flower implements java.lang.Comparable<Flower>
 {
-    private int Cost, StalkLength;
+    private int cost, StalkLength;
     private Freshness Fresh = Freshness.values()[0];
 
-    public int getCost() {return Cost;}
+    public int getCost() {return cost;}
     public final Freshness getFresh(){return Fresh;}
     public final int getStalkLength() {return StalkLength;}
 
-    public void setCost(int value) {Cost = value;}
+    public void setCost(int value) {cost = value;}
     public final void setFresh(Freshness value) {Fresh = value;}
     public final void setStalkLength(int value) {StalkLength = value;}
 

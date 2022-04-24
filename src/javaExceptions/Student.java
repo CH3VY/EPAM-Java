@@ -20,8 +20,9 @@ public class Student {
             }
             sumOfSubjectAverageMarks += sumScore / subject.getScores().size();
         }
-
-        return sumOfSubjectAverageMarks / subjects.size();
+        double averageMark = sumOfSubjectAverageMarks / subjects.size();
+        double roundedAverageMark = Math.round(averageMark * 100.0) / 100.0;
+        return roundedAverageMark;
     }
 
     public List<Subject> getSubjects() throws NoSubjectsException {

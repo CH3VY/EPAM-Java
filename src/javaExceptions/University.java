@@ -14,20 +14,22 @@ public class University {
 
     }
 
-    public void averageScoreForAllStudents() {
+    public void averageScoreForAllStudents() throws NoGroupsException {
+        System.out.println("Average grades of the following students: ");
         for (Faculty faculty : faculties) {
             for (Group group : faculty.getGroups()) {
                 for (Student student : group.getStudents()) {
-                    System.out.println("Average for student " + student.getName() + " is " + student.getAverageMark());
+                    System.out.print(student.getName() + ": " + student.getAverageMark() + " | ");
                 }
             }
         }
 
     }
 
-    public void getAverageScorePerSubjectPerGroup() throws InvalidScoreException, NoSubjectsException {
+    public void getAverageScorePerSubjectPerGroup() throws InvalidScoreException, NoSubjectsException, NoGroupsException, NoFacultiesException {
 
-
+        System.out.println("\n");
+        System.out.println("Average grades of subjects in each group: ");
         for (Faculty faculty : faculties) {
             for (Group group : faculty.getGroups()) {
                 Map<String, List<Double>> sumOfAveragePerSubject = new HashMap<>();
@@ -42,16 +44,19 @@ public class University {
                     for (double score : subjectWithAverages.getValue()) {
                         sum += score;
                     }
-                    double averageForsubject = sum / subjectWithAverages.getValue().size();
-                    System.out.println("Faculty " + faculty.getName() + " Group " + group.getName() + " Subject " + subjectWithAverages.getKey() + " average = " + averageForsubject);
+                    double averageForSubject = sum / subjectWithAverages.getValue().size();
+                    double roundedAverageForSubject = Math.round(averageForSubject * 100.0) / 100.0;
+                    System.out.println("Faculty: " + faculty.getName() + ", Group: " + group.getName() + ", Subject: " + subjectWithAverages.getKey() + ", average grade: " + roundedAverageForSubject);
                 }
             }
         }
 
     }
 
-    public void getAverageScorePerSubject() throws InvalidScoreException, NoSubjectsException {
+    public void getAverageScorePerSubject() throws InvalidScoreException, NoSubjectsException, NoGroupsException, NoFacultiesException {
 
+        System.out.println("\n");
+        System.out.println("Average grades of subjects in university: ");
 
         Map<String, List<Double>> sumOfAveragePerSubject = new HashMap<>();
 
@@ -70,8 +75,9 @@ public class University {
             for (double score : subjectWithAverages.getValue()) {
                 sum += score;
             }
-            double averageForsubject = sum / subjectWithAverages.getValue().size();
-            System.out.println("Subject " + subjectWithAverages.getKey() + " average = " + averageForsubject);
+            double averageForSubject = sum / subjectWithAverages.getValue().size();
+            double roundedAverageForSubject = Math.round(averageForSubject * 100.0) / 100.0;
+            System.out.println("Subject " + subjectWithAverages.getKey() + " average = " + roundedAverageForSubject);
         }
 
     }

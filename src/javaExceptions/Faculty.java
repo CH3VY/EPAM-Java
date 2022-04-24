@@ -11,7 +11,10 @@ public class Faculty {
         this.groups = groups;
     }
 
-    public List<Group> getGroups(){
+    public List<Group> getGroups() throws NoGroupsException{
+        if (groups.isEmpty()) {
+            throw new NoGroupsException();
+        }
         return groups;
     }
 

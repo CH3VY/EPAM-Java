@@ -2,34 +2,48 @@ package javaExceptions;
 
 import java.util.List;
 
+// EPAM Automated Testing: Java Foundations
+// Aidyn Seipolla
+
 public class ExceptionsMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoGroupsException {
 
-//        var johnSubjects = new HashMap<String, Double>();
-//        johnSubjects.put("Math", 4.0);
-//        johnSubjects.put("English", 3.0);
-//        johnSubjects.put("History", 3.6);
-//
-//        var alexSubjects = new HashMap<String, Double>();
-//        alexSubjects.put("Math", 2.5);
-//        alexSubjects.put("Physics", 3.2);
-//        alexSubjects.put("History", 2.6);
+        var subjectMathForJohn = new Subject("Math", List.of(4.0, 4.2, 3.8));
+        var subjectPhysicsForJohn = new Subject("Physics", List.of(3.5, 3.2, 4.0));
+        var subjectMathForAlex = new Subject("Math", List.of(3.5, 2.2, 2.6));
+        var subjectMechanicsForAlex = new Subject("Mechanics", List.of(3.8, 4.4, 3.7));
+        var subjectMaterialsForKevin = new Subject("Materials", List.of(3.1, 2.6, 3.5));
+        var subjectMathForKevin = new Subject("Math", List.of(2.4, 3.5, 4.0));
+        var subjectKineticsForDanny = new Subject("Kinetics", List.of(2.8, 2.4, 3.1));
+        var subjectPhysicsForDanny = new Subject("Physics", List.of(3.5, 3.0, 4.6));
+        var subjectPhysicsForSally = new Subject("Physics", List.of(2.5, 2.7, 2.5));
+        var subjectMaterialsForSally = new Subject("Materials", List.of(2.8, 2.9, 3.8));
+        var subjectMechanicsForKim = new Subject("Mechanics", List.of(3.9, 4.2, 4.1));
+        var subjectKineticsForKim = new Subject("Kinetics", List.of(3.1, 2.8, 3.5));
+        var subjectChemistryForMarry = new Subject("Chemistry", List.of(3.9, 3.8, 4.5));
+        var subjectMathForMarry = new Subject("Math", List.of(4.1, 3.4, 3.5));
+        var subjectKineticsForBrian = new Subject("Kinetics", List.of(2.9, 2.5, 3.2));
+        var subjectChemistryForBrian = new Subject("Chemistry", List.of(3.7, 3.1, 4.0));
+
+        var studentJohn = new Student("John", List.of(subjectMathForJohn, subjectPhysicsForJohn));
+        var studentAlex = new Student("Alex", List.of(subjectMathForAlex, subjectMechanicsForAlex));
+        var studentKevin = new Student("Kevin", List.of(subjectMaterialsForKevin, subjectMathForKevin));
+        var studentDanny = new Student("Danny", List.of(subjectKineticsForDanny, subjectPhysicsForDanny));
+        var studentSally = new Student("Sally", List.of(subjectPhysicsForSally, subjectMaterialsForSally));
+        var studentKim = new Student("Kim", List.of(subjectMechanicsForKim, subjectKineticsForKim));
+        var studentMarry = new Student("Marry", List.of(subjectChemistryForMarry, subjectMathForMarry));
+        var studentBrian = new Student("Brian", List.of(subjectKineticsForBrian, subjectChemistryForBrian));
 
 
-        var subjectMathForJohn = new Subject("Math", List.of(4.0, 4.2));
-        var subjectMathForAlex = new Subject("Math", List.of(3.5, 2.2));
+        // University's hierarchy
 
-        var studentJohn = new Student("John", List.of(subjectMathForJohn));
-        //  var studentRay =new Student ("Ray", johnSubjects) ;
-        var studentAlex = new Student("Alex", List.of(subjectMathForAlex));
-        //var studentTim =  new Student ("Tim",  alexSubjects);
-
-
-        Group physicsGroup1 = new Group("Physics 1", List.of(studentJohn, studentAlex));
-        Group chemistryGroup1 = new Group("Chemisty 1", List.of());
-        Faculty physics = new Faculty("Physics", List.of(physicsGroup1));
-        Faculty chemistry = new Faculty("Chemisty", List.of(chemistryGroup1));
+        Group physicsGroupI = new Group("Physics I", List.of(studentJohn, studentAlex));
+        Group chemistryGroupI = new Group("Chemistry I", List.of(studentMarry, studentBrian));
+        Group physicsGroupII = new Group("Physics II", List.of(studentKevin, studentDanny));
+        Group chemistryGroupII = new Group("Chemistry II", List.of(studentSally, studentKim));
+        Faculty physics = new Faculty("Physics", List.of(physicsGroupI, physicsGroupII));
+        Faculty chemistry = new Faculty("Chemistry", List.of(chemistryGroupI, chemistryGroupII));
         University university = new University(List.of(physics, chemistry));
 
         university.averageScoreForAllStudents();
@@ -40,26 +54,12 @@ public class ExceptionsMain {
             System.out.println("Invalid score, check your data set..");
         } catch (NoSubjectsException e) {
             System.out.println("No subjects in group..");
+        } catch (NoGroupsException e) {
+            System.out.println("No groups in faculty..");
+        } catch (NoFacultiesException e) {
+            System.out.println("No faculties in university..");
         }
-
-//        university.getAverageScoreFor("Physics 1", "Physics");
-//        university.getAverageScorePerSubject();
-
-//        students.forEach(student -> System.out.println("Student "+ student.getName() + " average mark:" +  student.getAverageMark()));
-
-//                new Student ("Daniel", "Chemistry", "1A", 3.8, List.of("Intro to Chemistry", "Organic Chemistry I", "Biochemistry")),
-//                new Student ("Walter", "Chemistry", "2A", 2.9, List.of("Organic Chemistry I", "Hydrocarbons", "Organic Synthesis")),
-//                new Student ("Brian", "Physics", "2B", 3.2, List.of("Calculus II", "Intro to Mechanics", "Molecular Physics")),
-//                new Student ("Jeff", "Physics", "2B", 2.7, List.of("Calculus II", "Intro to Mechanics", "Thermodynamics")),
-//                new Student ("Jane", "Physics", "2A", 3.9, List.of("Calculus I", "Intro to Mechanics", "Thermodynamics")),
-//                new Student ("Tiffany", "Chemistry", "1A", 3.1, List.of("Intro to Chemistry", "Organic Chemistry I", "Hydrocarbons")),
-//                new Student ("Mary", "Chemistry", "1B", 3.4, List.of("Calculus I", "Organic Chemistry II", "Organic Synthesis")),
-//                new Student ("Sally", "Chemistry", "1A", 3.7, List.of("Organic Synthesis", "Organic Chemistry I", "Biochemistry")),
-//                new Student ("Kevin", "Chemistry", "2A", 2.8, List.of("Organic Chemistry II", "Hydrocarbons", "Calculus II")),
-//                new Student ("Sue", "Chemistry", "2B", 2.5, List.of("Organic Chemistry I", "Calculus I", "Thermodynamics")),
-//                new Student ("Michael", "Chemistry", "2A", 3.9, List.of("Organic Chemistry I", "Hydrocarbons", "Thermodynamics")),
     }
-
 }
 
 

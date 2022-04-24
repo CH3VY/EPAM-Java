@@ -14,7 +14,7 @@ public class University {
 
     }
 
-    public void averageScoreForAllStudents() throws NoGroupsException {
+    public void averageScoreForAllStudents() throws NoGroupsException, NoStudentsException {
         System.out.println("Average grades of the following students: ");
         for (Faculty faculty : faculties) {
             for (Group group : faculty.getGroups()) {
@@ -26,7 +26,7 @@ public class University {
 
     }
 
-    public void getAverageScorePerSubjectPerGroup() throws InvalidScoreException, NoSubjectsException, NoGroupsException, NoFacultiesException {
+    public void getAverageScorePerSubjectPerGroup() throws InvalidScoreException, NoSubjectsException, NoStudentsException, NoGroupsException, NoFacultiesException {
 
         System.out.println("\n");
         System.out.println("Average grades of subjects in each group: ");
@@ -53,7 +53,7 @@ public class University {
 
     }
 
-    public void getAverageScorePerSubject() throws InvalidScoreException, NoSubjectsException, NoGroupsException, NoFacultiesException {
+    public void getAverageScorePerSubject() throws InvalidScoreException, NoSubjectsException, NoStudentsException, NoGroupsException, NoFacultiesException {
 
         System.out.println("\n");
         System.out.println("Average grades of subjects in university: ");

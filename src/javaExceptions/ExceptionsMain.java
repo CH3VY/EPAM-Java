@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ExceptionsMain {
 
-    public static void main(String[] args) throws NoGroupsException {
+    public static void main(String[] args) throws NoGroupsException, NoStudentsException {
 
         var subjectMathForJohn = new Subject("Math", List.of(4.0, 4.2, 3.8));
         var subjectPhysicsForJohn = new Subject("Physics", List.of(3.5, 3.2, 4.0));

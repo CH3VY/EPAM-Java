@@ -11,7 +11,10 @@ public class Group {
         this.name = name;
     }
 
-    public List<Student> getStudents() {
+    public List<Student> getStudents() throws NoStudentsException{
+        if (students.isEmpty()) {
+            throw new NoStudentsException();
+        }
         return students;
     }
 
